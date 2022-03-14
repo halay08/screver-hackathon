@@ -83,14 +83,14 @@ $ docker info
 ```
 
 Install docker compose
-```ssh
+```sh
 $ sudo curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
 ### Clone git repository
-```
+```sh
 $ cd /home
 $ git clone git@github.com:halay08/survey-testing.git
 $ mv survey-testing app
@@ -102,6 +102,25 @@ $ docker-compose up -d
 ```
 $ docker-compose ps
 $ docker-compose logs -f
+```
+
+### Let’s Encrypt SSL
+
+```sh
+$ sudo apt-get update
+$ sudo apt-get install -yq certbot python-certbot-nginx nginx
+$ sudo certbot certonly \
+  --agree-tos \
+  --email ken@kenstack.com \
+  --manual \
+  --preferred-challenges=dns \
+  -d *.screver.kenstack.io \
+  --server https://acme-v02.api.letsencrypt.org/directory
+
+$ sudo cp /etc/letsencrypt/live/screver.kenstack.io/fullchain.pem certs/screver.kenstack.io.crt
+$ sudo cp /etc/letsencrypt/live/screver.kenstack.io/privkey.pem certs/screver.kenstack.io.key
+$ sudo chown -R $USER:$USER certs/
+$ docker-compose down && docker-compose up -d
 ```
 
 ## Troubleshooting
