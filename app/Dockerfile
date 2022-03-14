@@ -3,7 +3,7 @@ FROM node:16 as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
-COPY .env.example /app/.env
+COPY .env.production /app/.env
 RUN npm install --silent
 COPY . /app
 RUN npm run build

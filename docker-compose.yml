@@ -1,11 +1,19 @@
 version: '2'
 services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
   app:
     build: ./app
     ports:
-      - '80:80'
+      - '3000:80'
     depends_on:
       - api
+    environment:
+      - VIRTUAL_HOST=app.screver.kenstack.io
   api:
     build: ./api
     ports:
@@ -14,6 +22,7 @@ services:
       - mongo
     environment:
       - MONGODB_URL=mongodb://mongo:27017/survey-testing
+      - VIRTUAL_HOST=api.screver.kenstack.io
   mongo:
     image: mongo
     ports:
