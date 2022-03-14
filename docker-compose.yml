@@ -1,7 +1,7 @@
 version: '2'
 services:
-  ui:
-    build: ./ui
+  app:
+    build: ./app
     ports:
       - '80:80'
     depends_on:
