@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Stage, Layer, Circle, RegularPolygon, Text } from "react-konva";
 import useDimensions from "../hooks/use-dimensions";
+import LoadingButton from "./LoadingButton";
 
 const MAX_WIDTH = 500;
 const CIRCLE_RADIUS = 3;
 const FONT_SIZE = 5;
 const SQUARE_WIDTH = 100;
 
-const SurveyTriangle = ({ onSubmit }) => {
+const SurveyTriangle = ({ onSubmit, isLoading }) => {
   const containerRef = useRef();
   const triangleRef = useRef();
   const circleRef = useRef();
@@ -143,12 +144,13 @@ const SurveyTriangle = ({ onSubmit }) => {
         </Stage>
       </div>
       <div className="flex flex-col items-center">
-        <button
+        <LoadingButton
+          label={"Save"}
+          loadingLabel={"Processing..."}
           onClick={onSaveClick}
-          className="bg-sky-600 hover:bg-sky-700 py-2 px-10 rounded-sm text-black"
-        >
-          Save
-        </button>
+          isLoading={isLoading}
+          className="bg-sky-600 hover:bg-sky-700 py-2 px-10 rounded-md text-white flex items-center"
+        />
       </div>
     </>
   );
