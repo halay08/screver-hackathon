@@ -38,7 +38,7 @@ function App() {
       <div className="container mx-auto min-h-screen">
         <div className="mb-20">
           <h1 className="text-3xl font-bold mb-10">Survey</h1>
-          <SurveyTriangle onSubmit={onSubmitSurvey} />
+          <SurveyTriangle onSubmit={onSubmitSurvey} isLoading={createSurveyResultMutation.isLoading} />
         </div>
         <div className="mb-20">
           <h1 className="text-3xl font-bold mb-10">Output Heat Map</h1>
