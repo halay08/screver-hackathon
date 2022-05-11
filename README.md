@@ -125,4 +125,4 @@ $ docker-compose down && docker-compose up -d
 
 ## Troubleshooting
 
-Please contact [KenStack Team](dev@kenstack.io) if you have any questions about this Hackathon application.
+Please contact [KenStack Team](mailto:dev@kenstack.io) if you have any questions about this Hackathon application.
