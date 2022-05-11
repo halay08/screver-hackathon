@@ -33,9 +33,9 @@ heatmap as the output.
 
 You can read about Sensemaker here:
 
-https://thecynefin.co/sensemaker-2/
-https://thecynefin.co/about-sensemaker/
-https://thecynefin.co/how-to-use-sensemaker/
+- https://thecynefin.co/sensemaker-2/
+- https://thecynefin.co/about-sensemaker/
+- https://thecynefin.co/how-to-use-sensemaker/
 
 ## Getting Started
 
@@ -108,7 +108,7 @@ $ docker-compose logs -f
 
 ```sh
 $ sudo apt-get update
-$ sudo apt-get install -yq certbot python-certbot-nginx nginx
+$ sudo apt-get install -yq certbot
 $ sudo certbot certonly \
   --agree-tos \
   --email ken@kenstack.com \
